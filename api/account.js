@@ -3,14 +3,6 @@ const resp = require('../helpers/response');
 const con = require('../constants/index');
 
 const dummyUsers = [
-
- 
-  {
-    id: 3,
-    username: 'bob_jackson',
-    email: 'bob.jackson@example.com',
-    age: 28,
-  },
   {
     id: 4,
     username: 'Bob jackson',
