@@ -1,0 +1,10 @@
+2024-02-06T17:52:08.396Z:	"ReferenceError: eventLogger is not defined\n    at Helper.cResponse (D:\\Node\\test\\helpers\\response.js:37:9)\n    at D:\\Node\\test\\api\\account.js:38:21\n    at D:\\Node\\test\\helpers\\catch-async.js:6:5\n    at Layer.handle [as handle_request] (D:\\Node\\test\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Node\\test\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at Route.dispatch (D:\\Node\\test\\node_modules\\express\\lib\\router\\route.js:114:3)\n    at Layer.handle [as handle_request] (D:\\Node\\test\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:280:10)"
+2024-02-06T17:54:55.696Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-06T17:55:03.677Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-06T17:56:17.427Z:	
+GET /users  {200 Record found successfully}
+

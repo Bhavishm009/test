@@ -1,6 +1,7 @@
 const statusCode = require('./statusCodes');
-
+const logger = require('../logger/eventLogger');
 const commonHelper = require('./common');
+const eventLogger = require('../logger/eventLogger');
 
 module.exports = class Helper extends statusCode {
     static async cResponse(req, res, status, info, data = null) { // Add 'async' here

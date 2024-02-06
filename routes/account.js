@@ -3,5 +3,6 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (router) => {
-    router.post("/login", account.login)
+    router.post("/login", account.login);
+    router.get("/users", account.users)
 }

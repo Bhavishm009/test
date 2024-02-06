@@ -5,9 +5,10 @@ const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const compression = require('compression');
 const app = express();
+const morgan = require('morgan');
 
 // Enable CORS
-app.use(cors());
+app.use(cors({ origin: '*' }));
 
 // Body parser middleware
 app.use(express.json());
@@ -17,8 +18,14 @@ app.use(helmet());
 
 // Compression middleware
 app.use(compression());
+
 // Disable x-powered-by header
 app.disable('x-powered-by');
+
+
+// Use morgan for request logging
+app.use(morgan('combined'));
+
 
 // Use your routes
 app.use("/api/v1", (err, req, res, next) => {
