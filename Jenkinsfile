@@ -38,9 +38,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Deploy your application (adjust as needed)
+                // Deploy your application using SSH
                 script {
-                    sh 'npm run deploy'
+                    sh 'ssh root@195.35.21.208/ "mkdir -p /path/to/deployment" && scp -r * root@195.35.21.208:/var/www/rest'
                 }
             }
         }
@@ -48,13 +48,11 @@ pipeline {
 
     post {
         success {
-            // Additional steps to perform on success
-            echo 'Pipeline succeeded! Your application is deployed.'
+            echo 'Deployment successful!'
         }
 
         failure {
-            // Additional steps to perform on failure
-            echo 'Pipeline failed! Please check the build and deployment logs for details.'
+            echo 'Deployment failed!'
         }
     }
 }
