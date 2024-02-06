@@ -27,6 +27,12 @@ const dummyUsers = [
     email: 'bob.jackson@example.com',
     age: 28,
   },
+  {
+    id: 5,
+    username: 'Harshad Kajale',
+    email: 'Harshad_Kajale@example.com',
+    age: 28,
+  },
 
 ];
 
