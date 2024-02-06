@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your code from your version control system (e.g., Git)
+                // Checkout your code from the Git repository
                 checkout scm
             }
         }
@@ -12,47 +12,33 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Node.js dependencies
-                script {
-                    sh 'npm install'
-                }
+                sh 'npm install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                // Run your application tests
-                script {
-                    sh 'npm test'
-                }
+                // Run tests if applicable
+                sh 'npm test'
             }
         }
 
-        stage('Build') {
-            steps {
-                // Build your Node.js application
-                script {
-                    sh 'npm run build'
-                }
-            }
-        }
 
         stage('Deploy') {
             steps {
-                // Deploy your application using SSH
-                script {
-                    sh 'ssh root@195.35.21.208/ "mkdir -p /path/to/deployment" && scp -r * root@195.35.21.208:/var/www/rest'
-                }
+                sh 'scp -r ./* /var/www/rest'
+                sh 'cd /var/www/rest && pm2 restart server'
             }
         }
     }
 
     post {
         success {
-            echo 'Deployment successful!'
+            echo 'Deployment successful! Your application is now live.'
         }
 
         failure {
-            echo 'Deployment failed!'
+            echo 'Deployment failed! Please check the logs for more information.'
         }
     }
 }
