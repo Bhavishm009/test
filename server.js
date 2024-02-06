@@ -9,7 +9,7 @@ const app = express();
 const morgan = require('morgan');
 
 const PORT = process.env.PORT || 5000;
-
+const port = 80;
 // Enable CORS
 app.use(cors({ origin: '*' }));
 
@@ -41,6 +41,6 @@ app.use("/api/v1", (err, req, res, next) => {
     next();
 }, appRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });
