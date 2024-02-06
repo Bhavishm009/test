@@ -4,12 +4,7 @@ const con = require('../constants/index');
 
 const dummyUsers = [
 
-  {
-    id: 2,
-    username: 'jane_smith',
-    email: 'jane.smith@example.com',
-    age: 30,
-  },
+ 
   {
     id: 3,
     username: 'bob_jackson',
