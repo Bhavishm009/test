@@ -1,4 +1,8 @@
-require('dotenv').config();
+"use strict";
+
+const config = require("config");
+const baseUrl = config.get("baseUrl");
+const port = config.get("port");
 const express = require('express');
 const appRoutes = require("./routes/index");
 const cors = require('cors');
@@ -8,7 +12,8 @@ const compression = require('compression');
 const app = express();
 const morgan = require('morgan');
 
-const PORT = process.env.PORT || 5000;
+
+
 
 // Enable CORS
 app.use(cors({ origin: '*' }));
@@ -41,6 +46,6 @@ app.use("/api/v1", (err, req, res, next) => {
     next();
 }, appRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
 });

@@ -4,3 +4,6 @@ logs/*
 log/*
 *.env
 *.test
+config/development.json
+config/default.json
+config/test.json

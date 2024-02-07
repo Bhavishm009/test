@@ -1,0 +1,42 @@
+2024-02-07T04:06:43.437Z:	"ReferenceError: tables is not defined\n    at D:\\Node\\test\\api\\account.js:36:55\n    at D:\\Node\\test\\helpers\\catch-async.js:6:5\n    at Layer.handle [as handle_request] (D:\\Node\\test\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (D:\\Node\\test\\node_modules\\express\\lib\\router\\route.js:144:13)\n    at Route.dispatch (D:\\Node\\test\\node_modules\\express\\lib\\router\\route.js:114:3)\n    at Layer.handle [as handle_request] (D:\\Node\\test\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:284:15\n    at Function.process_params (D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:346:12)\n    at next (D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:280:10)\n    at Function.handle (D:\\Node\\test\\node_modules\\express\\lib\\router\\index.js:175:3)"
+2024-02-07T04:06:43.439Z:	
+POST /login  {417 tables is not defined}
+
+2024-02-07T04:08:28.817Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T04:08:28.854Z:	
+POST /login  {200 Added successfully}
+
+2024-02-07T04:11:02.456Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T04:11:02.489Z:	
+POST /login  {200 Added successfully}
+
+2024-02-07T04:11:42.621Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T04:11:42.651Z:	
+POST /login  {200 Added successfully}
+
+2024-02-07T04:13:28.770Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([[null]]), QUERY:INSERT INTO users(user_id) VALUES (?)
+2024-02-07T04:13:28.806Z:	{"code":"ER_BAD_FIELD_ERROR","errno":1054,"sqlMessage":"Unknown column 'user_id' in 'field list'","sqlState":"42S22","index":0,"sql":"INSERT INTO users(user_id) VALUES (NULL)"}
+2024-02-07T04:13:28.806Z:	
+POST /login  {417 Database error}
+
+2024-02-07T04:14:06.232Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([[null]]), QUERY:INSERT INTO users(user_id) VALUES (?)
+2024-02-07T04:14:06.242Z:	{"code":"ER_BAD_FIELD_ERROR","errno":1054,"sqlMessage":"Unknown column 'user_id' in 'field list'","sqlState":"42S22","index":0,"sql":"INSERT INTO users(user_id) VALUES (NULL)"}
+2024-02-07T04:14:06.242Z:	
+POST /login  {417 Database error}
+
+2024-02-07T04:14:10.760Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([[null]]), QUERY:INSERT INTO users(user_id) VALUES (?)
+2024-02-07T04:14:10.769Z:	{"code":"ER_BAD_FIELD_ERROR","errno":1054,"sqlMessage":"Unknown column 'user_id' in 'field list'","sqlState":"42S22","index":0,"sql":"INSERT INTO users(user_id) VALUES (NULL)"}
+2024-02-07T04:14:10.770Z:	
+POST /login  {417 Database error}
+
+2024-02-07T04:16:09.793Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T04:16:09.828Z:	
+POST /login  {200 Added successfully}
+
