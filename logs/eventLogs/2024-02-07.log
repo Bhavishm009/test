@@ -76,3 +76,16 @@ POST /login  {200 Added successfully}
 2024-02-07T14:58:00.806Z:	
 POST /login  {200 Added successfully}
 
+2024-02-07T15:23:52.641Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-07T15:23:58.443Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Yash","Muneshwar","8899776655"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T15:23:58.461Z:	
+POST /login  {200 Added successfully}
+
+2024-02-07T15:46:14.376Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Yash","Muneshwar","8899776655"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T15:46:14.381Z:	
+POST /login  {200 Added successfully}
+
