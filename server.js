@@ -14,7 +14,7 @@ const morgan = require('morgan');
 
 
 
-
+console.log('Database Configuration:', config.database);
 // Enable CORS
 app.use(cors({ origin: '*' }));
 
