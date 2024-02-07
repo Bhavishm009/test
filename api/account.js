@@ -43,8 +43,9 @@ const account = {
   }),
   users: asyncHandler(async (req, res) => {
     const body = req.body;
-    console.log(body);
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.RECORD_SUCCESS, dummyUsers);
+    const users = await commonServices.readAllData(req, tables.users,'*',{});
+
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.RECORD_SUCCESS, users);
   })
 }
 
