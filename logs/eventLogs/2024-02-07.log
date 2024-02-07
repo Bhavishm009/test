@@ -48,3 +48,31 @@ POST /login  {200 Added successfully}
 2024-02-07T05:05:47.839Z:	
 POST /login  {200 Added successfully}
 
+2024-02-07T05:48:50.355Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-07T14:56:15.273Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-07T14:56:23.862Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-07T14:56:24.612Z:	
+GET /users  {200 Record found successfully}
+
+2024-02-07T14:56:57.179Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([[null,null,null]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T14:56:57.199Z:	{"code":"ER_BAD_NULL_ERROR","errno":1048,"sqlMessage":"Column 'name' cannot be null","sqlState":"23000","index":0,"sql":"INSERT INTO users(name,last_name,mobile_no) VALUES (NULL, NULL, NULL)"}
+2024-02-07T14:56:57.199Z:	
+POST /login  {417 Database error}
+
+2024-02-07T14:57:57.691Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Yash","Muneshwar","8899776655"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T14:57:57.697Z:	
+POST /login  {200 Added successfully}
+
+2024-02-07T14:58:00.802Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Yash","Muneshwar","8899776655"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T14:58:00.806Z:	
+POST /login  {200 Added successfully}
+
