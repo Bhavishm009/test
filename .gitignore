@@ -7,3 +7,4 @@ log/*
 config/development.json
 config/default.json
 config/test.json
+config/production.json

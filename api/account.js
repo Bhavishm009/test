@@ -39,9 +39,7 @@ const account = {
     }
     let user = await commonServices.dynamicInsert(req, tables.users, userData);
 
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, {
-      user_id: user.insertId
-    })
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { user_id: user.insertId})
   }),
   users: asyncHandler(async (req, res) => {
     const body = req.body;

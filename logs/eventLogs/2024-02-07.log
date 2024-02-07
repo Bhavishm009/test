@@ -40,3 +40,11 @@ POST /login  {417 Database error}
 2024-02-07T04:16:09.828Z:	
 POST /login  {200 Added successfully}
 
+2024-02-07T05:04:48.452Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T05:04:48.481Z:	"cryptoJs is not defined"
+2024-02-07T05:05:47.791Z:	
+ API:/login, USERID:, FUNCTION:dynamicInsert, PARAMETERS:([["Bhavish","Muneshwar","7721841331"]]), QUERY:INSERT INTO users(name,last_name,mobile_no) VALUES (?)
+2024-02-07T05:05:47.839Z:	
+POST /login  {200 Added successfully}
+
