@@ -1,7 +1,7 @@
 "use strict";
 
 const config = require("config");
-const baseUrl = config.get("baseUrl");
+//const baseUrl = config.get("baseUrl");
 const port = config.get("port");
 const express = require('express');
 const appRoutes = require("./routes/index");
