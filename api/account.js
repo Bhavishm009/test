@@ -31,11 +31,11 @@ const tables = {
 const account = {
   login: asyncHandler(async (req, res) => {
     const body = req.body;
-    let loginResults = await commonServices.readSingleData(req, tables.users, '*', {'mobile_no': body.mobile_no,});
+    let loginResults = await commonServices.readSingleData(req, tables.users, '*', {'mobile_no': body.phone_number,});
      if (loginResults.length == 0) {
       return resp.cResponse(req, res, resp.FORBIDDEN_ERROR, con.account.NO_ACCOUNT);
     }
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { user_id: user.insertId })
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { loginResults })
   }),
   users: asyncHandler(async (req, res) => {
     const body = req.body;
