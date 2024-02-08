@@ -31,21 +31,20 @@ const tables = {
 const account = {
   login: asyncHandler(async (req, res) => {
     const body = req.body;
-    console.log(body);
-    const userData = {
-      name: body.name,
-      last_name: body.last_name,
-      mobile_no: body.mobile_no,
+    let loginResults = await commonServices.readSingleData(req, tables.users, '*', {'mobile_no': body.mobile_no,});
+     if (loginResults.length == 0) {
+      return resp.cResponse(req, res, resp.FORBIDDEN_ERROR, con.account.NO_ACCOUNT);
     }
-    let user = await commonServices.dynamicInsert(req, tables.users, userData);
-
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { user_id: user.insertId})
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { user_id: user.insertId })
   }),
   users: asyncHandler(async (req, res) => {
     const body = req.body;
-    const users = await commonServices.readAllData(req, tables.users,'*',{});
-
+    const users = await commonServices.readAllData(req, tables.users, '*', {});
     return resp.cResponse(req, res, resp.SUCCESS, con.account.RECORD_SUCCESS, users);
+  }),
+  sendMail: asyncHandler(async (req, res) => {
+    const body = req.body;
+
   })
 }
 
