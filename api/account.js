@@ -25,7 +25,6 @@ const account = {
   }),
   sendMail: asyncHandler(async (req, res) => {
     const body = req.body;
-    const mailInfo = body.mail_info ? body.mail_info : null;
     const from = body.from ? body.from : null;
     const to = body.to ? body.to : null;
     const subject = body.subject ? body.subject : null;

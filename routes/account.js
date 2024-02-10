@@ -27,20 +27,16 @@ module.exports = (router) => {
     }), reqValidator, account.login);
 
     router.post("/sendMail", validator(Joi, {
-        user: Joi.string()
-            .required()
-            .messages({
-                'string.base': 'Please enter the valid user ',
-                'string.empty': 'user should not be empty',
-                'any.required': 'Please enter the value for user',
-            }),
-        pass: Joi.string()
-            .required()
-            .messages({
-                'string.base': 'Please enter the valid pass ',
-                'string.empty': 'pass should not be empty',
-                'any.required': 'Please enter the value for pass',
-            }),
+        user: Joi.string().required().messages({
+            'string.base': 'Please enter the valid user ',
+            'string.empty': 'user should not be empty',
+            'any.required': 'Please enter the value for user',
+        }),
+        password: Joi.string().required().messages({
+            'string.base': 'Please enter the valid password ',
+            'string.empty': 'password should not be empty',
+            'any.required': 'Please enter the value for password',
+        }),
         from: Joi.string().required().messages({
             'string.base': 'Please enter the valid from ',
             'string.empty': 'from should not be empty',
