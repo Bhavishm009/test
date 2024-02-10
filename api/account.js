@@ -31,7 +31,7 @@ const account = {
     const description = body.description ? body.description : null;
     const html = body.html ? body.html : null;
     const user = body.user ? body.user : null;
-    const password = body.pass ? body.pass : null;
+    const password = body.password ? body.password : null;
 
     let transporter = nodemailer.createTransport({
       service: "gmail",
