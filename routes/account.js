@@ -27,25 +27,20 @@ module.exports = (router) => {
     }), reqValidator, account.login);
 
     router.post("/sendMail", validator(Joi, {
-        email_config: Joi.object({
-            user: Joi.string()
-                .required()
-                .messages({
-                    'string.base': 'Please enter the valid user ',
-                    'string.empty': 'user should not be empty',
-                    'any.required': 'Please enter the value for user',
-                }),
-            pass: Joi.string()
-                .required()
-                .messages({
-                    'string.base': 'Please enter the valid pass ',
-                    'string.empty': 'pass should not be empty',
-                    'any.required': 'Please enter the value for pass',
-                }),
-        }).required().messages({
-            'object.base': 'Email configuration should be provided',
-            'any.required': 'Email configuration is required',
-        }),
+        user: Joi.string()
+            .required()
+            .messages({
+                'string.base': 'Please enter the valid user ',
+                'string.empty': 'user should not be empty',
+                'any.required': 'Please enter the value for user',
+            }),
+        pass: Joi.string()
+            .required()
+            .messages({
+                'string.base': 'Please enter the valid pass ',
+                'string.empty': 'pass should not be empty',
+                'any.required': 'Please enter the value for pass',
+            }),
         from: Joi.string().required().messages({
             'string.base': 'Please enter the valid from ',
             'string.empty': 'from should not be empty',
@@ -71,7 +66,6 @@ module.exports = (router) => {
             'string.empty': 'from should not be html',
             'any.required': 'Please enter the value for html',
         }),
-
     }), reqValidator, account.sendMail)
 
 }
