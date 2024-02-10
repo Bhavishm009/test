@@ -27,12 +27,51 @@ module.exports = (router) => {
     }), reqValidator, account.login);
 
     router.post("/sendMail", validator(Joi, {
-        user: Joi.string()
-            .required()
-            .messages({ 'string.pattern.base': 'Phone number must be a 10-digit number', }),
-        password: Joi.string()
-            .required()
-            .messages({ 'string.pattern.base': 'Phone number must be a 10-digit number', }),
+        email_config: Joi.object({
+            user: Joi.string()
+                .required()
+                .messages({
+                    'string.base': 'Please enter the valid user ',
+                    'string.empty': 'user should not be empty',
+                    'any.required': 'Please enter the value for user',
+                }),
+            pass: Joi.string()
+                .required()
+                .messages({
+                    'string.base': 'Please enter the valid pass ',
+                    'string.empty': 'pass should not be empty',
+                    'any.required': 'Please enter the value for pass',
+                }),
+        }).required().messages({
+            'object.base': 'Email configuration should be provided',
+            'any.required': 'Email configuration is required',
+        }),
+        from: Joi.string().required().messages({
+            'string.base': 'Please enter the valid from ',
+            'string.empty': 'from should not be empty',
+            'any.required': 'Please enter the value for from',
+        }),
+        to: Joi.string().required().messages({
+            'string.base': 'Please enter the valid from ',
+            'string.empty': 'from should not be empty',
+            'any.required': 'Please enter the value for from',
+        }),
+        subject: Joi.string().required().messages({
+            'string.base': 'Please enter the valid from ',
+            'string.empty': 'from should not be empty',
+            'any.required': 'Please enter the value for from',
+        }),
+        description: Joi.string().required().messages({
+            'string.base': 'Please enter the valid from ',
+            'string.empty': 'from should not be empty',
+            'any.required': 'Please enter the value for from',
+        }),
+        html: Joi.string().required().messages({
+            'string.base': 'Please enter the valid html ',
+            'string.empty': 'from should not be html',
+            'any.required': 'Please enter the value for html',
+        }),
+
     }), reqValidator, account.sendMail)
 
 }

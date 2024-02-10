@@ -20,5 +20,6 @@ module.exports = Object.freeze({
     NEW_AND_CONFIRM_PASSWORDS_DO_NOT_MATCH: 'New and Confirm password fields do not match',
     PASSWORD_CHANGE_SUCCESS: 'Password changed successfully',
     PASSWORD_BLANK: "Password field should not be empty",
-    OLD_USED_PASSWORD: "Password is already used please enter a new password"
+    OLD_USED_PASSWORD: "Password is already used please enter a new password",
+    EMAIL_SUCCESS:"Email Send Successfully.!"
 })
