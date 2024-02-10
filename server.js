@@ -61,8 +61,8 @@ if (isLocal) {
         console.log(`Server is running at http://localhost:${port}`);
     });
 } else {
-    const privateKey = fs.readFileSync('/path/to/private-key.pem', 'utf8');
-    const certificate = fs.readFileSync('/path/to/certificate.pem', 'utf8');
+    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/fullchain.pem', 'utf8');
+    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
     const credentials = { key: privateKey, cert: certificate };
     const httpsServer = https.createServer(credentials, app);
     httpsServer.listen(httpsPort, () => {
