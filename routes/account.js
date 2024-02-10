@@ -26,4 +26,13 @@ module.exports = (router) => {
             }).optional().allow(''),
     }), reqValidator, account.login);
 
+    router.post("/sendMail", validator(Joi, {
+        user: Joi.string()
+            .required()
+            .messages({ 'string.pattern.base': 'Phone number must be a 10-digit number', }),
+        password: Joi.string()
+            .required()
+            .messages({ 'string.pattern.base': 'Phone number must be a 10-digit number', }),
+    }), reqValidator, account.sendMail)
+
 }
