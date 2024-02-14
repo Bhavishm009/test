@@ -59,10 +59,13 @@ if (isLocal) {
         console.log(`Server is running at http://localhost:${port}`);
     });
 } else {
-    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/fullchain.pem', 'utf8');
+
+    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
     const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/cert.pem', 'utf8');
-    const ca = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
-    const credentials = { key: privateKey, cert: certificate, ca: ca };
+    const cas = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
+
+    const credentials = { key: privateKey, cert: certificate, ca: cas };
+    
     const httpsServer = https.createServer(credentials, app);
     httpsServer.listen(httpsPort, '0.0.0.0', () => {
         console.log(`Server is running at https://api.hdfonline.in`);
