@@ -68,11 +68,6 @@ module.exports = (router) => {
             'string.empty': 'company_id should not be empty',
             'any.required': 'Please enter the value for company_id',
         }),
-        visitor_ip: Joi.string().required().messages({
-            'string.base': 'Please enter the valid company_id ',
-            'string.empty': 'company_id should not be empty',
-            'any.required': 'Please enter the value for company_id',
-        }),
         page_visited: Joi.string().required().messages({
             'string.base': 'Please enter the valid company_id ',
             'string.empty': 'company_id should not be empty',

@@ -16,12 +16,12 @@ const account = {
     const body = req.body;
 
     const company_id = body.company_id || null;
-    const visitor_ip = body.visitor_ip || null;
     const page_visited = body.page_visited || null;
+    const visitor_ip  = req.ip;
 
     const data = {
       company_id,
-      visitor_ip,
+      visitor_ip:visitor_ip,
       page_visited
     }
 
