@@ -17,7 +17,7 @@ const configPath = './config/default.json';
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 const port = config.port;
-const httpsPort = 443;  // Use the HTTPS port from the configuration or default to 3000
+const httpsPort = 8443;  // Use the HTTPS port from the configuration or default to 3000
 
 // Enable CORS
 app.use(cors({ origin: '*' }));
