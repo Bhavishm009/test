@@ -52,6 +52,7 @@ app.use("/api/v1", (err, req, res, next) => {
 
 // Determine environment (local or online)
 const isLocal = config.environment === 'local';
+console.log(isLocal)
 
 if (isLocal) {
     const httpServer = http.createServer(app);
@@ -63,7 +64,7 @@ if (isLocal) {
     const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
     const credentials = { key: privateKey, cert: certificate };
     const httpsServer = https.createServer(credentials, app);
-    httpsServer.listen(httpsPort, () => {
+    httpsServer.listen(httpsPort,'0.0.0.0', () => {
         console.log(`Server is running at https://api.hdfonline.in`);
     });
 }
