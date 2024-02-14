@@ -21,13 +21,6 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const port = config.port;
 const httpsPort = 443;  // Default HTTPS port
 
-const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/fullchain.pem', 'utf8');
-const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
-const cas = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
-const credentials = { key: privateKey, cert: certificate, ca: cas };
-
-//const server = require("http").createServer(app);
-const server = require("https").createServer(credentials, app);
 // Enable CORS
 app.use(cors({ origin: '*' }));
 
@@ -58,10 +51,19 @@ app.use("/api/v1", (err, req, res, next) => {
 }, appRoutes);
 
 // Determine environment (local or online)
+const isLocal = config.environment === 'local';
 
-server.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-});
-
-
-
+if (isLocal) {
+    const httpServer = http.createServer(app);
+    httpServer.listen(port, () => {
+        console.log(`Server is running at http://localhost:${port}`);
+    });
+} else {
+    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/fullchain.pem', 'utf8');
+    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
+    const credentials = { key: privateKey, cert: certificate };
+    const httpsServer = https.createServer(credentials, app);
+    httpsServer.listen(httpsPort,'0.0.0.0', () => {
+        console.log(`Server is running at https://api.hdfonline.in`);
+    });
+}
