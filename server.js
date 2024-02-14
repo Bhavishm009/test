@@ -6,7 +6,6 @@ const http = require('http');
 const express = require('express');
 const appRoutes = require("./routes/index");
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const helmet = require('helmet');
 const compression = require('compression');
 const morgan = require('morgan');
@@ -15,11 +14,10 @@ const app = express();
 
 // Load configuration from JSON file
 const configPath = './config/default.json';
-
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 const port = config.port;
-const httpsPort = 3000;  // Default HTTPS port
+const httpsPort = config.httpsPort || 3000;  // Use the HTTPS port from the configuration or default to 3000
 
 // Enable CORS
 app.use(cors({ origin: '*' }));
@@ -43,11 +41,9 @@ app.use(morgan('combined'));
 app.use("/api/v1", (err, req, res, next) => {
     if (err && err.statusCode === 429) {
         res.status(429).json({ status: 429, message: "You have exceeded your 5 requests per minute limit." });
+    } else {
+        next(err);  // Propagate the error
     }
-    process.on("uncaughtException", function (err) {
-        return res.status(417).json({ status: 417, message: err.message });
-    });
-    next();
 }, appRoutes);
 
 // Determine environment (local or online)
@@ -59,12 +55,20 @@ if (isLocal) {
     httpServer.listen(port, () => {
         console.log(`Server is running at http://localhost:${port}`);
     });
-
 } else {
+    const privateKeyPath = '/etc/letsencrypt/live/api.hdfonline.in/privkey.pem';
+    const certificatePath = '/etc/letsencrypt/live/api.hdfonline.in/cert.pem';
+    const chainPath = '/etc/letsencrypt/live/api.hdfonline.in/chain.pem';
 
-    const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
-    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/cert.pem', 'utf8');
-    const cas = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
+    // Check if SSL certificate files exist
+    if (!fs.existsSync(privateKeyPath) || !fs.existsSync(certificatePath) || !fs.existsSync(chainPath)) {
+        console.error('SSL certificate files not found. Make sure the paths are correct.');
+        process.exit(1);
+    }
+
+    const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
+    const certificate = fs.readFileSync(certificatePath, 'utf8');
+    const cas = fs.readFileSync(chainPath, 'utf8');
 
     const credentials = { key: privateKey, cert: certificate, ca: cas };
 
