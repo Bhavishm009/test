@@ -23,15 +23,17 @@ const port = config.port;
 const httpsPort = 3000;  // Default HTTPS port
 
 //For Online Uncomment This For Depolyment
-
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/cert.pem', 'utf8');
 const cas = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
 const credentials = { key: privateKey, cert: certificate, ca: cas };
+
 //For Local
 //const server = require("http").createServer(app);
+
 //For Online
 const server = require("https").createServer(credentials, app);
+
 // landing
 app.get("/", (req, res) => {
     res.render("server");
