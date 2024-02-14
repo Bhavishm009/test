@@ -21,8 +21,6 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const port = config.port;
 const httpsPort = 80;  // Default HTTPS port
 
-console.log('Database Configuration:', config.database);
-
 // Enable CORS
 app.use(cors({ origin: '*' }));
 

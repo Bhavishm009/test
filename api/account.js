@@ -17,17 +17,19 @@ const account = {
 
     const company_id = body.company_id || null;
     const page_visited = body.page_visited || null;
-    const visitor_ip  = req.ip;
+    const visitor_ip = req.socket._peername.address.replace(/^.*:/, '');
+
+    console.log(visitor_ip)
 
     const data = {
       company_id,
-      visitor_ip:visitor_ip,
+      visitor_ip,
       page_visited
     }
 
-    const visit = await commonServices.dynamicInsert(req, tables.wb, body);
-    console.log(visit)
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, {visitId: visit.insertId })
+    const visit = await commonServices.dynamicInsert(req, tables.wb, data);
+    
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { visitId: visit.insertId })
 
   }),
 
