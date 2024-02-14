@@ -73,4 +73,8 @@ if (isLocal) {
     httpsServer.listen(httpsPort, '0.0.0.0', () => {
         console.log(`Server is running at https://api.hdfonline.in`);
     });
+
+    httpsServer.on('error', (error) => {
+        console.error('HTTPS Server Error:', error);
+    });
 }
