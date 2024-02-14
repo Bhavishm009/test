@@ -60,7 +60,7 @@ if (isLocal) {
     });
 } else {
     const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/fullchain.pem', 'utf8');
-    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
+    const certificate = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/cert.pem', 'utf8');
     const credentials = { key: privateKey, cert: certificate };
     const httpsServer = https.createServer(credentials, app);
     httpsServer.listen(httpsPort,'0.0.0.0', () => {
