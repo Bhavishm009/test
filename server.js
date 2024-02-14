@@ -55,9 +55,11 @@ const isLocal = config.environment === 'local';
 
 if (isLocal) {
     const httpServer = http.createServer(app);
+
     httpServer.listen(port, () => {
         console.log(`Server is running at http://localhost:${port}`);
     });
+
 } else {
 
     const privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/privkey.pem', 'utf8');
@@ -65,8 +67,9 @@ if (isLocal) {
     const cas = fs.readFileSync('/etc/letsencrypt/live/api.hdfonline.in/chain.pem', 'utf8');
 
     const credentials = { key: privateKey, cert: certificate, ca: cas };
-    
+
     const httpsServer = https.createServer(credentials, app);
+
     httpsServer.listen(httpsPort, '0.0.0.0', () => {
         console.log(`Server is running at https://api.hdfonline.in`);
     });
