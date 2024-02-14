@@ -21,11 +21,6 @@ const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 const port = config.port;
 const httpsPort = 3000;  // Default HTTPS port
 
-// landing
-app.get("/", (req, res) => {
-    res.render("server");
-  });
-
 // Enable CORS
 app.use(cors({ origin: '*' }));
 
@@ -42,7 +37,7 @@ app.use(compression());
 app.disable('x-powered-by');
 
 // Use morgan for request logging
-app.use(morgan(':time :method :url :body :req[header] :status :response-time ms :total-time[digits] :user-agent', { stream: accessLogStream }))
+app.use(morgan('combined'));
 
 // Use your routes
 app.use("/api/v1", (err, req, res, next) => {
