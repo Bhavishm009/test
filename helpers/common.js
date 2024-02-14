@@ -36,6 +36,33 @@ const common = {
             throw new customError('Unable to decrypt token', error.message);
         }
     },
+
+    createToken: async (userData, tokenTime, tokenUse = "login") => {
+        let tempData = {
+            userId: userData.userId,
+            firstName: userData.firstName,
+            lastName: userData.lastName,
+            email: userData.email,
+            phoneNumber: userData.phoneNumber,
+            roleName: userData.roleName,
+            roleId: userData.roleId,
+            isVerified: userData.is_verified == '0' ? false : true,
+            userStatus: userData.userStatus,
+            is_first_time: userData.is_first_time,
+            iat: (new Date().getTime() / 1000)
+        };
+        // let date = new Date()/1000;
+        // let date = new Date(Date.now() - 1000 * (60 * 3))/1000 
+        // tempData.iat = date;
+        let token = jwt.sign(tempData, jwtConfig.jwtKey, {
+            algorithm: jwtConfig.algorithm,
+            expiresIn: tokenTime,
+        })
+        // token = await common.encryptData(token);
+        return token;
+    },
+
+
     generateOtp: async () => {
         const options = {
             min: 100000, max: 999999, integer: true,

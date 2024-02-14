@@ -6,10 +6,31 @@ const nodemailer = require("nodemailer");
 
 
 const tables = {
-  users: "users"
+  users: "users",
+  wb: "website_visits"
 }
 
 const account = {
+
+  addVisits: asyncHandler(async (req, res) => {
+    const body = req.body;
+
+    const company_id = body.company_id || null;
+    const visitor_ip = body.visitor_ip || null;
+    const page_visited = body.page_visited || null;
+
+    const data = {
+      company_id,
+      visitor_ip,
+      page_visited
+    }
+
+    const visit = await commonServices.dynamicInsert(req, tables.wb, body);
+    console.log(visit)
+    return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, {visitId: visit.insertId })
+
+  }),
+
   login: asyncHandler(async (req, res) => {
     const body = req.body;
     let loginResults = await commonServices.readSingleData(req, tables.users, '*', { 'mobile_no': body.phone_number, });
@@ -18,11 +39,7 @@ const account = {
     }
     return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { loginResults })
   }),
-  users: asyncHandler(async (req, res) => {
-    const body = req.body;
-    const users = await commonServices.readAllData(req, tables.users, '*', {});
-    return resp.cResponse(req, res, resp.SUCCESS, con.account.RECORD_SUCCESS, users);
-  }),
+
   sendMail: asyncHandler(async (req, res) => {
     const body = req.body;
     const from = body.from ? body.from : null;
@@ -48,7 +65,6 @@ const account = {
       text: description,
       html: html,
     };
-
     transporter.sendMail(info, (err) => {
       if (err) {
         console.log(err);
