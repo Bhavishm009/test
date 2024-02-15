@@ -81,4 +81,8 @@ if (isLocal) {
     httpsServer.on('error', (error) => {
         console.error('HTTPS Server Error:', error);
     });
+
+    httpsServer.on('listening', () => {
+        console.log('HTTPS Server is listening on port', httpsServer.address().port);
+    });
 }
