@@ -7,7 +7,7 @@ const reqValidator = require('../middleware/reqValidator');
 const resp = require('../helpers/response');
 
 module.exports = (router) => {
-    
+
     router.post("/login", validator(Joi, {
         phone_number: Joi.string()
             .regex(/^[0-9]{10}$/)
@@ -73,6 +73,19 @@ module.exports = (router) => {
             'string.empty': 'company_id should not be empty',
             'any.required': 'Please enter the value for company_id',
         }),
-    }), reqValidator, account.addVisits)
+    }), reqValidator, account.addVisits);
+
+    router.post("/sendMailSheerji", validator(Joi, {
+        name: Joi.string().required().messages({
+            'string.base': 'Please enter the valid name ',
+            'string.empty': 'name should not be empty',
+            'any.required': 'Please enter the value for name',
+        }),
+        email: Joi.string().required().messages({
+            'string.base': 'Please enter the valid email ',
+            'string.empty': 'email should not be empty',
+            'any.required': 'Please enter the value for email',
+        }),
+    }), reqValidator, account.sendMailSheerji);
 
 }
