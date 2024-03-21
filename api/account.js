@@ -99,18 +99,28 @@ const account = {
         let info = {
             from: '"harikrushnamultimedia@gmail.com"',
             to: email,
-            subject: ` Hello,Mr/Mrs : ${name}, /n Your Chat App Verification Code`,
-            text: `Hello,Mr/Mrs : ${name}, We Are Happy Have You On Board 👌😀`,
+            subject: ` Hello,Mr/Mrs : ${name},`,
+            text: `Hello,Mr/Mrs : ${name}, Thank you. Connecting with us.`,
             html: `
-            <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;">
-                <div style="background-color: #ffffff; max-width: 600px; margin: auto; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
-                    <h1 style="color: #333;">Email Verification</h1>
-                    <p style="color: #555; font-size: 16px;">Dear ${name},</p>
-                    <p style="color: #555; font-size: 16px;">Thank you for registering with our platform. To get started, please click the link below to verify your email address:</p>
-                    <p style="color: #555; font-size: 16px; margin-top: 20px;">If the button above doesn't work, you can also copy and paste the following link into your browser:</p>
-                    <p style="color: #555; font-size: 16px;">Thank you for using our platform!</p>
-                </div>
-            </body>`,
+                <head>
+                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+                </head>
+                 <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;background-image: url('https://modernmannerism.com/email/emailbg.jpeg'); background-size: cover; ">
+                   <div style="background-color: #ffffff; max-width: 600px; margin: auto; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                     <h1 style="color: #333;">We Are Here to Assist You!</h1>
+                     <p style="color: #555; font-size: 16px;">Dear ${name},</p>
+                     <p style="color: #555; font-size: 16px;">Thank you for contacting with us.</p>
+                     <p style="color: #555; font-size: 16px;">If you have any questions or need assistance, please feel free to contact us:</p>
+                     <p style="color: #555; font-size: 16px;">
+                       <i class="fas fa-phone-alt"></i> Phone: <a href="tel:+919824229989" style="color: #007bff; text-decoration: none;"> +91 9824229989</a>
+                     </p>
+                     <p style="color: #555; font-size: 16px;">
+                       <i class="far fa-envelope"></i> Email: <a href="mailto:harikrushnamultimedia@gmail.com" style="color: #007bff; text-decoration: none;">harikrushnamultimedia@gmail.com</a>
+                     </p>
+                     <p style="color: #555; font-size: 16px;">Website: <a href="https://shreejigraphic.com/" style="color: #007bff; text-decoration: none;">www.shreejigraphic.com</a></p>
+                     <p style="color: #555; font-size: 16px; margin-top: 20px;">Thank you for choosing our platform!</p>
+                   </div>
+                 </body>`,
         };
 
         let info2 = {
