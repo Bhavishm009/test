@@ -87,7 +87,7 @@ const account = {
         const name = body.name;
         const email = body.email;
         const message = body.message;
-        const mobile = body.mobile;
+        const mobile = body.number;
 
         let transporter = nodemailer.createTransport({
             service: "gmail",
