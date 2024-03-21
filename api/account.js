@@ -104,9 +104,6 @@ const account = {
             subject: ` Hello,Mr/Mrs : ${name},`,
             text: `Hello,Mr/Mrs : ${name}, Thank you. Connecting with us.`,
             html: `
-                <head>
-                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-                </head>
                  <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;">
                    <div style="background-color: #ffffff; max-width: 600px; margin: auto; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                      <h1 style="color: #333;">We Are Here to Assist You!</h1>
@@ -122,7 +119,8 @@ const account = {
                      <p style="color: #555; font-size: 16px;">Website: <a href="https://shreejigraphic.com/" style="color: #007bff; text-decoration: none;">www.shreejigraphic.com</a></p>
                      <p style="color: #555; font-size: 16px; margin-top: 20px;">Thank you for choosing our platform!</p>
                    </div>
-                 </body>`,
+                 </body>
+                `,
         };
 
         let info2 = {
