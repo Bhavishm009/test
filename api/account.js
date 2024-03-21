@@ -80,6 +80,7 @@ const account = {
             }
         });
     }),
+
     sendMailSheerji: asyncHandler(async (req, res) => {
         console.log(req.body)
         const body = req.body;
@@ -96,6 +97,7 @@ const account = {
                 pass: "mvdzyawjmysmtbtc",
             },
         });
+
         let info = {
             from: '"harikrushnamultimedia@gmail.com"',
             to: email,
@@ -105,7 +107,7 @@ const account = {
                 <head>
                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
                 </head>
-                 <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;background-image: url('https://modernmannerism.com/email/emailbg.jpeg'); background-size: cover; ">
+                 <body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; padding: 20px;">
                    <div style="background-color: #ffffff; max-width: 600px; margin: auto; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                      <h1 style="color: #333;">We Are Here to Assist You!</h1>
                      <p style="color: #555; font-size: 16px;">Dear ${name},</p>
@@ -138,6 +140,7 @@ const account = {
                 </div>
             </body>`,
         };
+
         transporter.sendMail(info2, (err) => {
             if (err) {
                 console.log(err)
