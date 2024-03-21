@@ -123,7 +123,8 @@ const account = {
                 <div style="background-color: #ffffff; max-width: 600px; margin: auto; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
                     <h1 style="color: #333;">Message</h1>
                     <p style="color: #555; font-size: 16px;">${message}</p>
-                    <p style="color: #555; font-size: 16px;">User Email : ${email}, /n User Contact No : ${mobile}</p>
+                    <p style="color: #555; font-size: 16px;">User Email : ${email},  User Contact No : ${mobile}</p>
+                    <p style="color: #555; font-size: 16px;">User Contact No : ${mobile}</p>
                 </div>
             </body>`,
         };
