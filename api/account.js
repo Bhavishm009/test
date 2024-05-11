@@ -12,35 +12,9 @@ const tables = {
 
 const account = {
 
-    addVisits: asyncHandler(async (req, res) => {
-        const body = req.body;
-        const company_id = body.company_id || null;
-        const page_visited = body.page_visited || null;
-        const visitor_ip = req.socket._peername.address.replace(/^.*:/, '');
-        const user_agent = req.headers['user-agent'];
-
-        const isVisited = await commonServices.readSingleData(req, tables.wb, '*', { user_agent: user_agent, page_visited: page_visited, company_id: company_id });
-        console.log(isVisited)
-        const data = {
-            company_id,
-            visitor_ip,
-            page_visited,
-            user_agent,
-        }
-        const visit = await commonServices.dynamicInsert(req, tables.wb, data);
-        return resp.cResponse(req, res, resp.SUCCESS, con.account.CREATED, { visitId: visit.insertId })
-    }),
-
-
-
-
-
-
-
-
     login: asyncHandler(async (req, res) => {
         const body = req.body;
-        let loginResults = await commonServices.readSingleData(req, tables.users, '*', { 'mobile_no': body.phone_number, });
+        let loginResults = await commonServices.readSingleData(req, tables.users, '*', { 'mobileNumber': body.phone_number, });
         if (loginResults.length == 0) {
             return resp.cResponse(req, res, resp.FORBIDDEN_ERROR, con.account.NO_ACCOUNT);
         }
